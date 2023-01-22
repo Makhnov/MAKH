@@ -1,0 +1,267 @@
+@use 'sass:math';
+$space:' ';
+$vh:'vh';
+$vw:'vw';
+
+html, body {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+}
+
+// ROWS
+$margin-top:1.5fr;
+$main-row:7.5fr;
+$margin-bottom:1fr;
+
+// COLUMNS
+$margin-left:1fr;
+$menu-column:4fr;
+$socket-column:3fr;
+$gap-column:1fr;
+$main-column:6fr;
+$margin-right:1fr;
+
+
+#makh {
+    background-color: rgb(132, 148, 142);
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 
+        $margin-top $main-row $margin-bottom;
+
+    grid-template-columns: 
+        $margin-left $menu-column $socket-column $gap-column $main-column $margin-right;
+
+    perspective: 1000px;
+    perspective-origin:60% 5%;
+    transform: rotateX(-10deg) rotateY(-10deg);
+
+    input.socket {
+        grid-row: 3;
+        grid-column: 3;
+        height: 30px;
+        width: 30px;
+        align-self: center;
+        justify-self: center;
+        cursor: pointer;
+
+        &:checked ~ #socket .front, &:checked ~ #socket .back, &:checked ~ #socket .right, &:checked ~ #socket .left {
+            animation: socket 2s linear forwards;
+        }
+        &:checked ~ #socket .top {
+            animation: topSocket 2s linear forwards;
+        }
+    }
+
+    input.menu {
+        grid-row: 3;
+        grid-column: 2;
+        position: relative;
+        height: 30px;
+        width: 30px;
+        align-self: center;
+        justify-self: start;
+        cursor: pointer;
+
+        @for $i from 1 through 5 {
+            &:nth-of-type(#{$i}) {
+                left:calc(-13vw + ($i * 40px));
+            }
+        }        
+        
+        &.one:checked ~ #menu .one, 
+        &.two:checked ~ #menu .two,
+        &.three:checked ~ #menu .three,
+        &.four:checked ~ #menu .four {
+            animation: menu 2s ease-out forwards;
+        }
+    }
+}
+
+#menu {
+    position: relative;
+    grid-row: 2;
+    grid-column: 2;
+    height:60vh;
+    width:25vw;
+    top:15vh;
+    transform-style: preserve-3d;
+    display: grid;
+    row-gap: 1px;
+    grid-template-columns: 1vw 15vw 2vw;
+    grid-template-rows: 10vh 10vh 10vh 10vh 20vh;
+
+    @for $i from 1 through 4 {
+        div:nth-of-type(#{$i}) {
+            grid-row: $i;
+            z-index: 5 - $i;
+        }
+    }
+
+    @for $i from 1 through 4 {
+        label:nth-of-type(#{$i}) {
+            grid-row: $i;
+
+            &:hover ~ div:nth-of-type(#{$i}) {
+                left:1vw;
+            }
+        }
+    }
+
+    label {
+        position: absolute;
+        grid-column: 1 / span 3;
+        z-index: 10;
+        height: 10vh;
+        width: 18vw;
+        padding-left:20px;
+        transform: translate3d(0, 0, 25px);
+        opacity: 0;
+        width: calc(18vw - 20px);
+        cursor: pointer;
+    }
+
+    div {
+        position: relative;
+        transform-style: preserve-3d;
+        grid-column: 1 / span 3;
+        height: 10vh;
+        width:18vw;
+        box-sizing: border-box;
+        left:0;
+        transition: .5s;
+
+        .menu {
+            position: absolute;
+            box-sizing: border-box;
+            border: 1px solid white;
+        }
+        
+        .front {
+            height: 10vh;
+            width: 18vw;
+            padding-left:20px;
+            transform: translate3d(0, 0, 25px);
+            background-color: rgb(0, 26, 81);
+            display: grid;
+            align-content: center;
+            color: whitesmoke;
+            font-size: 2.5vw;
+            text-transform: uppercase;        
+        }
+        .back {
+            height: 10vh;
+            width: 18vw;
+            transform: translate3d(0, 0, -25px);
+            background-color: rgb(0, 26, 81);
+        }
+
+        .right {
+            height: 10vh;
+            width: 50px;
+            transform:translate3d(calc(18vw - 25px), 0, 0) rotateY(90deg);
+            background-color: rgb(0, 26, 81);
+        }
+        .left {
+            height: 10vh;
+            width: 50px;
+            transform:translate3d(-25px, 0, 0) rotateY(90deg);
+            background-color: rgb(0, 26, 81);
+        }
+
+        .top {
+            height: 50px;
+            width: 18vw;
+            transform:translate3d(0, -25px, 0) rotateX(90deg);
+            background-color: rgb(0, 26, 81);
+        }
+        .bottom {
+            height: 50px;
+            width: 18vw;
+            transform:translate3d(0, calc(10vh - 25px), 0) rotateX(90deg);
+            background-color: rgb(0, 26, 81);
+        }
+    }
+}
+
+#socket {
+    position: relative;
+    grid-row: 2;
+    grid-column: 3;
+    height: 100%;
+    width:100%;
+    transform-style: preserve-3d;
+    z-index: 5;
+    
+    .socket {
+        position: absolute;
+        left:20%;
+        bottom:0;
+        box-sizing: border-box;
+        background-color: rgb(0, 26, 81);
+        border: 1px solid white;
+        transition: 2s;
+    }
+
+    .front {
+        height: 0;
+        width: 50px;
+        transform: translate3d(0%, 0%, 25px);
+    }
+    .back {
+        height: 0;
+        width: 50px;
+        transform: translate3d(0%, 0%, -25px);
+    }
+
+    .right {
+        height: 0;
+        width: 50px;
+        transform:translate3d(25px, 0%, 0) rotateY(90deg);
+    }
+    .left {
+        height: 0;
+        width: 50px;
+        transform:translate3d(-25px, 0%, 0) rotateY(90deg);
+    }
+
+    .top {
+        height: 50px;
+        width: 50px;
+        transform:translate3d(0%, 25px, 0) rotateX(90deg);
+    }
+}
+
+@keyframes socket {
+    from {
+        height: 0;    
+    }
+
+    to {
+        height: 60vh;
+    }
+}
+
+@keyframes topSocket {
+    0% {
+        transform:translate3d(0, 25px, 0) rotateX(90deg);
+    }
+
+
+    100% {
+        transform:translate3d(0, calc(25px - 60vh), 0) rotateX(90deg);
+    }
+}
+
+@keyframes menu {
+    from {
+        left:1vw;
+    }
+    to {
+        left:5.3vw;
+    }   
+}

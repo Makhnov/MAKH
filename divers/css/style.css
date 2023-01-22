@@ -1,0 +1,282 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
+}
+
+#makh {
+  background-color: rgb(132, 148, 142);
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 1.5fr 7.5fr 1fr;
+  grid-template-columns: 1fr 4fr 3fr 1fr 6fr 1fr;
+  perspective: 1000px;
+  perspective-origin: 60% 5%;
+  transform: rotateX(-10deg) rotateY(-10deg);
+}
+#makh input.socket {
+  grid-row: 3;
+  grid-column: 3;
+  height: 30px;
+  width: 30px;
+  align-self: center;
+  justify-self: center;
+  cursor: pointer;
+}
+#makh input.socket:checked ~ #socket .front, #makh input.socket:checked ~ #socket .back, #makh input.socket:checked ~ #socket .right, #makh input.socket:checked ~ #socket .left {
+  -webkit-animation: socket 2s linear forwards;
+          animation: socket 2s linear forwards;
+}
+#makh input.socket:checked ~ #socket .top {
+  -webkit-animation: topSocket 2s linear forwards;
+          animation: topSocket 2s linear forwards;
+}
+#makh input.menu {
+  grid-row: 3;
+  grid-column: 2;
+  position: relative;
+  height: 30px;
+  width: 30px;
+  align-self: center;
+  justify-self: start;
+  cursor: pointer;
+}
+#makh input.menu:nth-of-type(1) {
+  left: calc(-13vw + 40px);
+}
+#makh input.menu:nth-of-type(2) {
+  left: calc(-13vw + 80px);
+}
+#makh input.menu:nth-of-type(3) {
+  left: calc(-13vw + 120px);
+}
+#makh input.menu:nth-of-type(4) {
+  left: calc(-13vw + 160px);
+}
+#makh input.menu:nth-of-type(5) {
+  left: calc(-13vw + 200px);
+}
+#makh input.menu.one:checked ~ #menu .one, #makh input.menu.two:checked ~ #menu .two, #makh input.menu.three:checked ~ #menu .three, #makh input.menu.four:checked ~ #menu .four {
+  -webkit-animation: menu 2s ease-out forwards;
+          animation: menu 2s ease-out forwards;
+}
+
+#menu {
+  position: relative;
+  grid-row: 2;
+  grid-column: 2;
+  height: 60vh;
+  width: 25vw;
+  top: 15vh;
+  transform-style: preserve-3d;
+  display: grid;
+  row-gap: 1px;
+  grid-template-columns: 1vw 15vw 2vw;
+  grid-template-rows: 10vh 10vh 10vh 10vh 20vh;
+}
+#menu div:nth-of-type(1) {
+  grid-row: 1;
+  z-index: 4;
+}
+#menu div:nth-of-type(2) {
+  grid-row: 2;
+  z-index: 3;
+}
+#menu div:nth-of-type(3) {
+  grid-row: 3;
+  z-index: 2;
+}
+#menu div:nth-of-type(4) {
+  grid-row: 4;
+  z-index: 1;
+}
+#menu label:nth-of-type(1) {
+  grid-row: 1;
+}
+#menu label:nth-of-type(1):hover ~ div:nth-of-type(1) {
+  left: 1vw;
+}
+#menu label:nth-of-type(2) {
+  grid-row: 2;
+}
+#menu label:nth-of-type(2):hover ~ div:nth-of-type(2) {
+  left: 1vw;
+}
+#menu label:nth-of-type(3) {
+  grid-row: 3;
+}
+#menu label:nth-of-type(3):hover ~ div:nth-of-type(3) {
+  left: 1vw;
+}
+#menu label:nth-of-type(4) {
+  grid-row: 4;
+}
+#menu label:nth-of-type(4):hover ~ div:nth-of-type(4) {
+  left: 1vw;
+}
+#menu label {
+  position: absolute;
+  grid-column: 1/span 3;
+  z-index: 10;
+  height: 10vh;
+  width: 18vw;
+  padding-left: 20px;
+  transform: translate3d(0, 0, 25px);
+  opacity: 0;
+  width: calc(18vw - 20px);
+  cursor: pointer;
+}
+#menu div {
+  position: relative;
+  transform-style: preserve-3d;
+  grid-column: 1/span 3;
+  height: 10vh;
+  width: 18vw;
+  box-sizing: border-box;
+  left: 0;
+  transition: 0.5s;
+}
+#menu div .menu {
+  position: absolute;
+  box-sizing: border-box;
+  border: 1px solid white;
+}
+#menu div .front {
+  height: 10vh;
+  width: 18vw;
+  padding-left: 20px;
+  transform: translate3d(0, 0, 25px);
+  background-color: rgb(0, 26, 81);
+  display: grid;
+  align-content: center;
+  color: whitesmoke;
+  font-size: 2.5vw;
+  text-transform: uppercase;
+}
+#menu div .back {
+  height: 10vh;
+  width: 18vw;
+  transform: translate3d(0, 0, -25px);
+  background-color: rgb(0, 26, 81);
+}
+#menu div .right {
+  height: 10vh;
+  width: 50px;
+  transform: translate3d(calc(18vw - 25px), 0, 0) rotateY(90deg);
+  background-color: rgb(0, 26, 81);
+}
+#menu div .left {
+  height: 10vh;
+  width: 50px;
+  transform: translate3d(-25px, 0, 0) rotateY(90deg);
+  background-color: rgb(0, 26, 81);
+}
+#menu div .top {
+  height: 50px;
+  width: 18vw;
+  transform: translate3d(0, -25px, 0) rotateX(90deg);
+  background-color: rgb(0, 26, 81);
+}
+#menu div .bottom {
+  height: 50px;
+  width: 18vw;
+  transform: translate3d(0, calc(10vh - 25px), 0) rotateX(90deg);
+  background-color: rgb(0, 26, 81);
+}
+
+#socket {
+  position: relative;
+  grid-row: 2;
+  grid-column: 3;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  z-index: 5;
+}
+#socket .socket {
+  position: absolute;
+  left: 20%;
+  bottom: 0;
+  box-sizing: border-box;
+  background-color: rgb(0, 26, 81);
+  border: 1px solid white;
+  transition: 2s;
+}
+#socket .front {
+  height: 0;
+  width: 50px;
+  transform: translate3d(0%, 0%, 25px);
+}
+#socket .back {
+  height: 0;
+  width: 50px;
+  transform: translate3d(0%, 0%, -25px);
+}
+#socket .right {
+  height: 0;
+  width: 50px;
+  transform: translate3d(25px, 0%, 0) rotateY(90deg);
+}
+#socket .left {
+  height: 0;
+  width: 50px;
+  transform: translate3d(-25px, 0%, 0) rotateY(90deg);
+}
+#socket .top {
+  height: 50px;
+  width: 50px;
+  transform: translate3d(0%, 25px, 0) rotateX(90deg);
+}
+
+@-webkit-keyframes socket {
+  from {
+    height: 0;
+  }
+  to {
+    height: 60vh;
+  }
+}
+
+@keyframes socket {
+  from {
+    height: 0;
+  }
+  to {
+    height: 60vh;
+  }
+}
+@-webkit-keyframes topSocket {
+  0% {
+    transform: translate3d(0, 25px, 0) rotateX(90deg);
+  }
+  100% {
+    transform: translate3d(0, calc(25px - 60vh), 0) rotateX(90deg);
+  }
+}
+@keyframes topSocket {
+  0% {
+    transform: translate3d(0, 25px, 0) rotateX(90deg);
+  }
+  100% {
+    transform: translate3d(0, calc(25px - 60vh), 0) rotateX(90deg);
+  }
+}
+@-webkit-keyframes menu {
+  from {
+    left: 1vw;
+  }
+  to {
+    left: 5.3vw;
+  }
+}
+@keyframes menu {
+  from {
+    left: 1vw;
+  }
+  to {
+    left: 5.3vw;
+  }
+}/*# sourceMappingURL=style.css.map */
