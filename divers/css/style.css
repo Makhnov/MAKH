@@ -9,10 +9,131 @@ html, body {
 
 #wall {
   position: absolute;
+  z-index: 20;
+  background-image: url("../img/murPortfolio.jpg");
+  background-size: cover;
+  background-position: center;
   height: 100vh;
   width: 100vw;
-  -o-object-fit: cover;
-     object-fit: cover;
+}
+
+#night {
+  position: absolute;
+  z-index: 20;
+  height: 100vh;
+  width: 100vw;
+  -webkit-animation: backgroundStart 2s linear infinite;
+          animation: backgroundStart 2s linear infinite;
+}
+
+@-webkit-keyframes backgroundStart {
+  0% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  10% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.92) 0.8%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  20% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.89) 1.6%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  30% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.86) 2.4%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  40% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.83) 3.2%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  50% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.8) 4%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  50% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.8) 4%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  60% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.83) 3.2%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  70% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.86) 2.4%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  80% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.89) 1.6%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  90% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.92) 0.8%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  100% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+}
+
+@keyframes backgroundStart {
+  0% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  10% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.92) 0.8%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  20% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.89) 1.6%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  30% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.86) 2.4%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  40% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.83) 3.2%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  50% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.8) 4%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  50% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.8) 4%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  60% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.83) 3.2%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  70% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.86) 2.4%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  80% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.89) 1.6%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  90% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.92) 0.8%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+  100% {
+    background: radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.99) 20%, black 100%);
+  }
+}
+input.socket {
+  all: initial;
+  margin: 0 !important;
+  padding: 0;
+  position: absolute;
+  z-index: 30;
+  height: 100px;
+  width: 100px;
+  top: calc(5% - 50px);
+  left: calc(5% - 50px);
+  transform: rotate(180deg);
+  background: url("../img/bulb.gif");
+  background-size: contain;
+  background-position: center;
+  border-radius: 50%;
+  align-self: center;
+  justify-self: center;
+  cursor: pointer;
+  transition: opacity 1s;
+  transition: opacity 1s;
+}
+input.socket:checked {
+  opacity: 0;
+}
+input.socket:checked ~ #makh #socket .front, input.socket:checked ~ #makh #socket .back, input.socket:checked ~ #makh #socket .right, input.socket:checked ~ #makh #socket .left {
+  -webkit-animation: socket 2s linear forwards;
+          animation: socket 2s linear forwards;
+}
+input.socket:checked ~ #makh #socket .top {
+  -webkit-animation: topSocket 2s linear forwards;
+          animation: topSocket 2s linear forwards;
 }
 
 #makh {
@@ -24,23 +145,6 @@ html, body {
   perspective: 1000px;
   perspective-origin: 60% 5%;
   transform: rotateX(-10deg) rotateY(-10deg);
-}
-#makh input.socket {
-  grid-row: 3;
-  grid-column: 3;
-  height: 30px;
-  width: 30px;
-  align-self: center;
-  justify-self: center;
-  cursor: pointer;
-}
-#makh input.socket:checked ~ #socket .front, #makh input.socket:checked ~ #socket .back, #makh input.socket:checked ~ #socket .right, #makh input.socket:checked ~ #socket .left {
-  -webkit-animation: socket 2s linear forwards;
-          animation: socket 2s linear forwards;
-}
-#makh input.socket:checked ~ #socket .top {
-  -webkit-animation: topSocket 2s linear forwards;
-          animation: topSocket 2s linear forwards;
 }
 #makh input.menu {
   grid-row: 3;
