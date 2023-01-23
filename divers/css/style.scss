@@ -9,6 +9,7 @@ html, body {
     box-sizing: border-box;
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
 }
 
 // ROWS
@@ -24,9 +25,14 @@ $gap-column:1fr;
 $main-column:6fr;
 $margin-right:1fr;
 
+#wall {
+    position:absolute;
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+}
 
 #makh {
-    background-color: rgb(132, 148, 142);
     height: 100vh;
     width: 100vw;
     display: grid;
@@ -55,6 +61,9 @@ $margin-right:1fr;
         &:checked ~ #socket .top {
             animation: topSocket 2s linear forwards;
         }
+        // &:checked ~ #menu {
+            
+        // }
     }
 
     input.menu {
@@ -67,9 +76,9 @@ $margin-right:1fr;
         justify-self: start;
         cursor: pointer;
 
-        @for $i from 1 through 5 {
+        @for $i from 1 through 6 {
             &:nth-of-type(#{$i}) {
-                left:calc(-13vw + ($i * 40px));
+                left:calc(-10vw + ($i * 40px));
             }
         }        
         
@@ -94,6 +103,7 @@ $margin-right:1fr;
     row-gap: 1px;
     grid-template-columns: 1vw 15vw 2vw;
     grid-template-rows: 10vh 10vh 10vh 10vh 20vh;
+    transition: opacity 1s;
 
     @for $i from 1 through 4 {
         div:nth-of-type(#{$i}) {

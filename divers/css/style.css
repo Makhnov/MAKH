@@ -4,10 +4,18 @@ html, body {
   box-sizing: border-box;
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
+}
+
+#wall {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 #makh {
-  background-color: rgb(132, 148, 142);
   height: 100vh;
   width: 100vw;
   display: grid;
@@ -45,19 +53,22 @@ html, body {
   cursor: pointer;
 }
 #makh input.menu:nth-of-type(1) {
-  left: calc(-13vw + 40px);
+  left: calc(-10vw + 40px);
 }
 #makh input.menu:nth-of-type(2) {
-  left: calc(-13vw + 80px);
+  left: calc(-10vw + 80px);
 }
 #makh input.menu:nth-of-type(3) {
-  left: calc(-13vw + 120px);
+  left: calc(-10vw + 120px);
 }
 #makh input.menu:nth-of-type(4) {
-  left: calc(-13vw + 160px);
+  left: calc(-10vw + 160px);
 }
 #makh input.menu:nth-of-type(5) {
-  left: calc(-13vw + 200px);
+  left: calc(-10vw + 200px);
+}
+#makh input.menu:nth-of-type(6) {
+  left: calc(-10vw + 240px);
 }
 #makh input.menu.one:checked ~ #menu .one, #makh input.menu.two:checked ~ #menu .two, #makh input.menu.three:checked ~ #menu .three, #makh input.menu.four:checked ~ #menu .four {
   -webkit-animation: menu 2s ease-out forwards;
@@ -76,6 +87,7 @@ html, body {
   row-gap: 1px;
   grid-template-columns: 1vw 15vw 2vw;
   grid-template-rows: 10vh 10vh 10vh 10vh 20vh;
+  transition: opacity 1s;
 }
 #menu div:nth-of-type(1) {
   grid-row: 1;
